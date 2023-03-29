@@ -10,13 +10,13 @@
 
 binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 {
-	binary_tree_t *grand_p = (node->parent);
+	binary_tree_t *grand_p;
 
 	if (node == NULL)
 	{
 		return (NULL);
 	}
-
+	grand_p = node->parent;
 	/* If father does not exist, there is no uncle */
 	if (grand_p != NULL)
 		grand_p = grand_p->parent;
