@@ -3,31 +3,25 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_insert_right - binary tree buolder?
+ * binary_tree_delete - binary tree delete
  *
- * @parent: parent node
- * @value: value of the node
- * Return: pointer to a new node of type binary_tree_t, or NULL
- * on failure or if parent is NULL
+ * @tree: parent node
+ * Return: void
  */
 
-binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
+void binary_tree_delete(binary_tree_t *tree)
 {
-	binary_tree_t *node;
-	binary_tree_t *old;
-
-	old = malloc(sizeof(binary_tree_t));
-	node = binary_tree_node(parent, value);
-	if (parent->right == NULL)
+	if (tree == NULL)
+		return;
+	if ((tree->left == NULL) && (tree->right == NULL))
 	{
-		parent->right = node;
+		free(tree);
+		return;
 	}
 	else
 	{
-		old = (parent->right);
-		old->parent = node;
-		node->right = old;
-		parent->right = node;
+		binary_tree_delete(tree->left);
+		binary_tree_delete(tree->right);
+		free(tree);
 	}
-	return (node);
 }
