@@ -25,12 +25,12 @@ size_t binary_tree_leaves_(const binary_tree_t *tree)
  */
 size_t binary_tree_size_(const binary_tree_t *tree)
 {
-        /* to be implemented */
-        if (tree == NULL)
-                return (0);
-        else
-                return (binary_tree_size_(tree->left) + 1 +
-                        binary_tree_size_(tree->right));
+	/* to be implemented */
+	if (tree == NULL)
+		return (0);
+	else
+		return (binary_tree_size_(tree->left) + 1 +
+			binary_tree_size_(tree->right));
 }
 /**
  * binary_tree_nodes - func return uncle
